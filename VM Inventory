@@ -1,0 +1,3 @@
+Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Scope AllUsers
+connect-viserver
+Get-VM | Select Name, PowerState, MemoryGB | Where-Object {$_.Powerstate -eq 'PoweredOn'} | Sort-Object Name | formart-table | Out-File D:\coding\all-vms_mem.txt
